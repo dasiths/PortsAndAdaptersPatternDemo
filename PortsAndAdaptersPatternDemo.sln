@@ -18,6 +18,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortsAndAdaptersPatternDemo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortsAndAdaptersPatternDemo.Models", "PortsAndAdaptersPatternDemo.Models\PortsAndAdaptersPatternDemo.Models.csproj", "{06C28A18-6B06-4C9B-9781-64AB0B06CB94}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortsAndAdaptersPatternDemo.Api", "PortsAndAdaptersPatternDemo.Api\PortsAndAdaptersPatternDemo.Api.csproj", "{D2AB948C-0F01-41DE-8C89-5CA767F26225}"
+	ProjectSection(ProjectDependencies) = postProject
+		{34EF8011-90C7-455A-BAA3-EF281CF72A8D} = {34EF8011-90C7-455A-BAA3-EF281CF72A8D}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +45,10 @@ Global
 		{06C28A18-6B06-4C9B-9781-64AB0B06CB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C28A18-6B06-4C9B-9781-64AB0B06CB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{06C28A18-6B06-4C9B-9781-64AB0B06CB94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2AB948C-0F01-41DE-8C89-5CA767F26225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2AB948C-0F01-41DE-8C89-5CA767F26225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2AB948C-0F01-41DE-8C89-5CA767F26225}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2AB948C-0F01-41DE-8C89-5CA767F26225}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

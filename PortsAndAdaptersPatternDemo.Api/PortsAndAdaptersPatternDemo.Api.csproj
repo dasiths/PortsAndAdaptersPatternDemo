@@ -1,19 +1,18 @@
-<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <OutputType>Exe</OutputType>
     <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="MediatR" Version="12.0.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0-preview.3.23174.8" />
-    <PackageReference Include="Spectre.Console.Cli" Version="0.45.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.0-preview.3.23174.2" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\PortsAndAdaptersPatternDemo.Data\PortsAndAdaptersPatternDemo.Data.csproj" />
     <ProjectReference Include="..\PortsAndAdaptersPatternDemo.RequestProcessing\PortsAndAdaptersPatternDemo.RequestProcessing.csproj" />
   </ItemGroup>
 
