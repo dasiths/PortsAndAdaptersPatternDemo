@@ -1,0 +1,50 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32112.339
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortsAndAdaptersPatternDemo.ConsoleApp", "PortsAndAdaptersPatternDemo.ConsoleApp\PortsAndAdaptersPatternDemo.ConsoleApp.csproj", "{C809D2AA-D164-46ED-8C00-B3DC62E12395}"
+	ProjectSection(ProjectDependencies) = postProject
+		{34EF8011-90C7-455A-BAA3-EF281CF72A8D} = {34EF8011-90C7-455A-BAA3-EF281CF72A8D}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortsAndAdaptersPatternDemo.Data", "PortsAndAdaptersPatternDemo.Data\PortsAndAdaptersPatternDemo.Data.csproj", "{B6C6CECD-7F3F-490E-8974-5C50E9240598}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortsAndAdaptersPatternDemo.RequestProcessing", "PortsAndAdaptersPatternDemo.RequestProcessing\PortsAndAdaptersPatternDemo.RequestProcessing.csproj", "{34EF8011-90C7-455A-BAA3-EF281CF72A8D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{06C28A18-6B06-4C9B-9781-64AB0B06CB94} = {06C28A18-6B06-4C9B-9781-64AB0B06CB94}
+		{B6C6CECD-7F3F-490E-8974-5C50E9240598} = {B6C6CECD-7F3F-490E-8974-5C50E9240598}
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortsAndAdaptersPatternDemo.Models", "PortsAndAdaptersPatternDemo.Models\PortsAndAdaptersPatternDemo.Models.csproj", "{06C28A18-6B06-4C9B-9781-64AB0B06CB94}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C809D2AA-D164-46ED-8C00-B3DC62E12395}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C809D2AA-D164-46ED-8C00-B3DC62E12395}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C809D2AA-D164-46ED-8C00-B3DC62E12395}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C809D2AA-D164-46ED-8C00-B3DC62E12395}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6C6CECD-7F3F-490E-8974-5C50E9240598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6C6CECD-7F3F-490E-8974-5C50E9240598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6C6CECD-7F3F-490E-8974-5C50E9240598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6C6CECD-7F3F-490E-8974-5C50E9240598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34EF8011-90C7-455A-BAA3-EF281CF72A8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34EF8011-90C7-455A-BAA3-EF281CF72A8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34EF8011-90C7-455A-BAA3-EF281CF72A8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34EF8011-90C7-455A-BAA3-EF281CF72A8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06C28A18-6B06-4C9B-9781-64AB0B06CB94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C28A18-6B06-4C9B-9781-64AB0B06CB94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C28A18-6B06-4C9B-9781-64AB0B06CB94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C28A18-6B06-4C9B-9781-64AB0B06CB94}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90778AE0-0190-47E5-8E97-8DB00D179C94}
+	EndGlobalSection
+EndGlobal
