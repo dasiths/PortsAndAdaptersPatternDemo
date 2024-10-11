@@ -1,11 +1,10 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PortsAndAdaptersPatternDemo.Data;
 using PortsAndAdaptersPatternDemo.Models;
 
 namespace PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetOrder;
 
-public class GetOrderRequestProcessor : IRequestHandler<GetOrderRequest, GetOrderResponse>
+public class GetOrderRequestProcessor
 {
     private readonly DemoDbContext _demoDbContext;
 
@@ -14,7 +13,7 @@ public class GetOrderRequestProcessor : IRequestHandler<GetOrderRequest, GetOrde
         _demoDbContext = demoDbContext;
     }
 
-    public async Task<GetOrderResponse> Handle(GetOrderRequest request, CancellationToken cancellationToken)
+    public async Task<GetOrderResponse> HandleAsync(GetOrderRequest request, CancellationToken cancellationToken)
     {
         var result = await _demoDbContext.Orders.Include(o => o.Products).Where(o => o.OrderId == request.OrderId).Select(o =>
             new OrderModel()

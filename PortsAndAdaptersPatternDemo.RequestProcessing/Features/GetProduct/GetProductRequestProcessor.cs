@@ -1,11 +1,10 @@
-﻿using MediatR;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using PortsAndAdaptersPatternDemo.Data;
 using PortsAndAdaptersPatternDemo.Models;
 
 namespace PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetProduct;
 
-public class GetProductRequestProcessor : IRequestHandler<GetProductRequest, GetProductResponse>
+public class GetProductRequestProcessor
 {
     private readonly DemoDbContext _demoDbContext;
 
@@ -14,7 +13,7 @@ public class GetProductRequestProcessor : IRequestHandler<GetProductRequest, Get
         _demoDbContext = demoDbContext;
     }
 
-    public async Task<GetProductResponse> Handle(GetProductRequest request, CancellationToken cancellationToken)
+    public async Task<GetProductResponse> HandleAsync(GetProductRequest request, CancellationToken cancellationToken)
     {
         var result = await _demoDbContext.Products.Where(p => p.ProductId == request.ProductId).Select(o =>
             new ProductModel()

@@ -1,11 +1,10 @@
 ﻿using System.Text.Json;
-using MediatR;
 using PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetOrder;
 using Spectre.Console.Cli;
 
 internal class GetOrderCommand : Command<GetOrderCommand.Settings>
 {
-    private readonly IMediator _mediator;
+    private readonly GetOrderRequestProcessor _getOrderRequestProcessor;
 
     public class Settings : CommandSettings
     {
@@ -13,17 +12,17 @@ internal class GetOrderCommand : Command<GetOrderCommand.Settings>
         public int OrderId { get; set; }
     }
     
-    public GetOrderCommand(IMediator mediator)
+    public GetOrderCommand(GetOrderRequestProcessor getOrderRequestProcessor)
     {
-        _mediator = mediator;
+        _getOrderRequestProcessor = getOrderRequestProcessor;
     }
 
     public override int Execute(CommandContext context, Settings settings)
     {
-        var result = _mediator.Send(new GetOrderRequest()
+        var result = _getOrderRequestProcessor.HandleAsync(new GetOrderRequest()
         {
             OrderId = settings.OrderId
-        }).ConfigureAwait(false).GetAwaiter().GetResult();
+        }, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
 
         Console.WriteLine(JsonSerializer.Serialize(result, new JsonSerializerOptions()
         {

@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetOrder;
 
 namespace PortsAndAdaptersPatternDemo.Api.Controllers
@@ -8,19 +7,19 @@ namespace PortsAndAdaptersPatternDemo.Api.Controllers
     [ApiController]
     public class OrdersController : ControllerBase
     {
-        private readonly IMediator _mediator;
+        private readonly GetOrderRequestProcessor _getOrderRequestProcessor;
 
-        public OrdersController(IMediator mediator)
+        public OrdersController(GetOrderRequestProcessor getOrderRequestProcessor)
         {
-            _mediator = mediator;
+            _getOrderRequestProcessor = getOrderRequestProcessor;
         }
 
-        public async Task<ActionResult<GetOrderResponse>> GetOrder(int orderId)
+        public async Task<ActionResult<GetOrderResponse>> GetOrder(int orderId, CancellationToken cancellationToken)
         {
-            return await _mediator.Send(new GetOrderRequest()
+            return await _getOrderRequestProcessor.HandleAsync(new GetOrderRequest()
             {
-                OrderId = orderId
-            });
+                OrderId = orderId                
+            }, cancellationToken);
         }
     }
 }

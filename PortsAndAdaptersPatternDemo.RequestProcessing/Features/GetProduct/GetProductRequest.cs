@@ -1,8 +1,7 @@
-﻿using MediatR;
-
+﻿
 namespace PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetProduct
 {
-    public class GetProductRequest: IRequest<GetProductResponse>
+    public class GetProductRequest
     {
         public int ProductId { get; set; }
     }

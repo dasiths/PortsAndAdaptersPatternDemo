@@ -1,18 +1,24 @@
 using System.Reflection;
 using PortsAndAdaptersPatternDemo.Data;
 using PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetOrder;
+using PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetProduct;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-builder.Services.AddMediatR(m => m.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly(), typeof(GetOrderRequest).Assembly)
-    .Lifetime = ServiceLifetime.Scoped);
+builder.Services.AddTransient<GetOrderRequestProcessor>();
+builder.Services.AddTransient<GetProductRequestProcessor>();
 builder.Services.AddDbContext<DemoDbContext>();
 
 DemoDbContext.SeedData();
 
 var app = builder.Build();
+
+//app.MapGet("/products/{productId}/", (int productId, GetProductRequestProcessor getProductRequestProcessor, CancellationToken cancellationToken) => getProductRequestProcessor.HandleAsync(new GetProductRequest()
+//{
+//    ProductId = productId
+//}, cancellationToken));
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

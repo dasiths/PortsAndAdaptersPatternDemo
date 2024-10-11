@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MediatR" Version="12.0.1" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\PortsAndAdaptersPatternDemo.Data\PortsAndAdaptersPatternDemo.Data.csproj" />
     <ProjectReference Include="..\PortsAndAdaptersPatternDemo.Models\PortsAndAdaptersPatternDemo.Models.csproj" />
   </ItemGroup>

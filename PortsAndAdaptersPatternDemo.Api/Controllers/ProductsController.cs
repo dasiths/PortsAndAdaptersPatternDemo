@@ -1,5 +1,4 @@
-﻿using MediatR;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetProduct;
 
 namespace PortsAndAdaptersPatternDemo.Api.Controllers;
@@ -8,18 +7,18 @@ namespace PortsAndAdaptersPatternDemo.Api.Controllers;
 [ApiController]
 public class ProductsController : ControllerBase
 {
-    private readonly IMediator _mediator;
-
-    public ProductsController(IMediator mediator)
+    private readonly GetProductRequestProcessor _getProductRequestProcessor;
+    public ProductsController(GetProductRequestProcessor getProductRequestProcessor)
     {
-        _mediator = mediator;
+        _getProductRequestProcessor = getProductRequestProcessor;
     }
 
-    public async Task<ActionResult<GetProductResponse>> GetProduct(int productId)
+    public async Task<ActionResult<GetProductResponse>> GetProduct(int productId, CancellationToken cancellationToken)
     {
-        return await _mediator.Send(new GetProductRequest()
+        return await _getProductRequestProcessor.HandleAsync(new GetProductRequest()
         {
             ProductId = productId
-        });
+        }, cancellationToken);
     }
 }
+

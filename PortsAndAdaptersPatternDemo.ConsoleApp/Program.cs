@@ -1,13 +1,13 @@
-﻿using System.Reflection;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using PortsAndAdaptersPatternDemo.ConsoleApp;
 using PortsAndAdaptersPatternDemo.Data;
 using PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetOrder;
+using PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetProduct;
 using Spectre.Console.Cli;
 
 var services = new ServiceCollection();
-services.AddMediatR(m => m.RegisterServicesFromAssemblies(Assembly.GetExecutingAssembly(), typeof(GetOrderRequest).Assembly)
-    .Lifetime = ServiceLifetime.Scoped);
+services.AddTransient<GetOrderRequestProcessor>();
+services.AddTransient<GetProductRequestProcessor>();
 services.AddDbContext<DemoDbContext>();
 
 // Create a type registrar and register any dependencies.

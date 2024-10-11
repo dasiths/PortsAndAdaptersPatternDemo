@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.Json;
-using MediatR;
 using PortsAndAdaptersPatternDemo.RequestProcessing.Features.GetProduct;
 using Spectre.Console.Cli;
 
@@ -12,19 +11,19 @@ internal sealed class GetProductCommand : Command<GetProductCommand.Settings>
         public int ProductId { get; set; }
     }
 
-    private readonly IMediator _mediator;
+    private readonly GetProductRequestProcessor _getProductRequestProcessor;
 
-    public GetProductCommand(IMediator mediator)
+    public GetProductCommand(GetProductRequestProcessor getProductRequestProcessor)
     {
-        _mediator = mediator;
+        _getProductRequestProcessor = getProductRequestProcessor;
     }
 
     public override int Execute([NotNull] CommandContext context, [NotNull] Settings settings)
     {
-        var result = _mediator.Send(new GetProductRequest()
+        var result = _getProductRequestProcessor.HandleAsync(new GetProductRequest()
         {
             ProductId = settings.ProductId
-        }).ConfigureAwait(false).GetAwaiter().GetResult();
+        }, CancellationToken.None).ConfigureAwait(false).GetAwaiter().GetResult();
 
         Console.WriteLine(JsonSerializer.Serialize(result, new JsonSerializerOptions()
         {
